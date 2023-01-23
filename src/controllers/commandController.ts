@@ -1,7 +1,7 @@
 import { ICommand } from 'src/helpers';
 import DrawingController from './drawingController';
 import NavigationController from './navigationController';
-import { prntScreen } from './screenController';
+import screenController from './screenController';
 
 export const controllers = async (data: ICommand) => {
   if (data.command === 'mouse_up') {
@@ -22,7 +22,7 @@ export const controllers = async (data: ICommand) => {
   } else if (data.command === 'draw_rectangle') {
     await DrawingController.drawRectangle(data);
   } else if (data.command === 'prnt_scrn') {
-    const img = await prntScreen();
+    const img = await screenController.prntScreen();
     return `prnt_scrn ${img}`;
   } else {
     return `command not found`;
