@@ -23,7 +23,8 @@ export const controllers = async (data: ICommand) => {
     await DrawingController.drawRectangle(data);
   } else if (data.command === 'prnt_scrn') {
     const img = await screenController.prntScreen();
-    return `prnt_scrn ${img}`;
+
+    return img;
   } else {
     return `command not found`;
   }
